@@ -18,14 +18,16 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     RectTransform ScrollViewPort;
     [SerializeField]
-    RectTransform QuestContent;
-    [SerializeField]
     TextMeshProUGUI GoldText;
     [SerializeField]
     TextMeshProUGUI StageText;
 
-    QuestManager _quest = new QuestManager();
-    public QuestManager Quest { get { return _quest; } }
+    [SerializeField]
+    public RectTransform QuestContent;
+    [SerializeField]
+    public RectTransform SoldierContent;
+    public QuestManager Quest { get; set; }
+    public SoldierManager Soldier { get; set; }
 
     IFooter _state;
     public IFooter State
@@ -44,10 +46,16 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         Manager.UI = this;
-        _quest.QuestContent = QuestContent;
-        _state = _quest;
+        var q = new GameObject("QuestManager").AddComponent<QuestManager>();
+        q.transform.SetParent(gameObject.transform);
+        Quest = q;
+        q.QuestContent = QuestContent;
+
+        var s = new GameObject("SoldierManager").AddComponent<SoldierManager>();
+        s.transform.SetParent(gameObject.transform);
+        Soldier = s;
+        s.SoldierContent = SoldierContent;
         Manager.Game.OnGoldChanged += OnGoldChanged;
-        _quest.Init();
     }
     private void Update()
     {
@@ -66,6 +74,10 @@ public class UIManager : MonoBehaviour
     }
     public void ToQuest()
     {
-        State = _quest;
+        State = Quest;
+    }
+    public void ToSoldier()
+    {
+        State = Soldier;
     }
 }

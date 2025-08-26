@@ -111,39 +111,31 @@ public class Quest : MonoBehaviour
         OpenCostText.gameObject.SetActive(false);
         UpgradeCostText.gameObject.SetActive(true);
         ExtraGoldText.gameObject.SetActive(true);
-        LoopBuff();
     }
-    public void LoopBuff()
-    {
-        StartCoroutine(CoBuffLoop());
-    }
-    IEnumerator CoBuffLoop()
-    {
-        float elapsed = 0;
-
-        while (true)
-        {
-            elapsed += Time.deltaTime;
-            var scale = QuestCooldownImg.rectTransform.localScale;
-            scale.x = Mathf.Clamp01(1f - (elapsed / Data.BaseCooldown));
-            QuestCooldownImg.rectTransform.localScale = scale;
-            int timer = ((int)(Data.BaseCooldown - elapsed));
-            int m = timer / 60;
-            int s = timer % 60;
-            QuestCooldownText.text = $"{m:D2}:{s:D2}";
-            if (elapsed >= Data.BaseCooldown)
-            {
-                Manager.Game.Gold += QuestGold;
-                elapsed = 0;
-            }
-            yield return null;
-        }
-    }
+    float elapsed = 0;
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.B))
         {
             Manager.UI.Quest.Add(this);
+        }
+    }
+    public void UpdateController()
+    {
+        if (!IsActive)
+            return;
+        elapsed += Time.deltaTime;
+        var scale = QuestCooldownImg.rectTransform.localScale;
+        scale.x = Mathf.Clamp01(1f - (elapsed / Data.BaseCooldown));
+        QuestCooldownImg.rectTransform.localScale = scale;
+        int timer = ((int)(Data.BaseCooldown - elapsed));
+        int m = timer / 60;
+        int s = timer % 60;
+        QuestCooldownText.text = $"{m:D2}:{s:D2}";
+        if (elapsed >= Data.BaseCooldown)
+        {
+            Manager.Game.Gold += QuestGold;
+            elapsed = 0;
         }
     }
 }

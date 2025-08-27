@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7adba134b5a33c848b2445d529c8bf81, type: 3}
   m_Name: SoldierData
   m_EditorClassIdentifier: 
-  soldierName: 
-  health: 0
-  attack: 0
-  defense: 0
-  speed: 0
+  soldierName: Soldier1
+  health: 100
+  attack: 20
+  defense: 30
+  speed: 3
   soldierAnimController: {fileID: 0}
-  attackRange: 0
-  openCost: 0
-  upgradeCost: 0
-  spawnCost: 0
-  baseUpgradeHealth: 0
-  baseUpgradeAttack: 0
-  baseUpgradeDefense: 0
+  attackRange: 5
+  openCost: 10
+  upgradeCost: 5
+  spawnCost: 4
+  baseUpgradeHealth: 7
+  baseUpgradeAttack: 7
+  baseUpgradeDefense: 7

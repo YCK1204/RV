@@ -344,7 +344,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 253942899}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1336730673}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: ToSoldier
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &253942899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1603,7 +1615,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2812938501893204701, guid: 8d2d65771bd0ca049bd68304c4e2db56, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2812938501893204701, guid: 8d2d65771bd0ca049bd68304c4e2db56, type: 3}
       propertyPath: m_AnchorMin.x
@@ -1611,7 +1623,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2812938501893204701, guid: 8d2d65771bd0ca049bd68304c4e2db56, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2812938501893204701, guid: 8d2d65771bd0ca049bd68304c4e2db56, type: 3}
       propertyPath: m_SizeDelta.x
@@ -1655,7 +1667,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2812938501893204701, guid: 8d2d65771bd0ca049bd68304c4e2db56, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -87.5
       objectReference: {fileID: 0}
     - target: {fileID: 2812938501893204701, guid: 8d2d65771bd0ca049bd68304c4e2db56, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1673,6 +1685,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoldierElement
       objectReference: {fileID: 0}
+    - target: {fileID: 7275030831047567252, guid: 8d2d65771bd0ca049bd68304c4e2db56, type: 3}
+      propertyPath: Data
+      value: 
+      objectReference: {fileID: 11400000, guid: 0b15988b7cc490a41ad9f1a788ce42be, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1828,7 +1844,7 @@ GameObject:
   - component: {fileID: 1187457674}
   - component: {fileID: 1187457673}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: '@Manager'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1907,9 +1923,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainCanvas: {fileID: 1343246424}
   ScrollViewPort: {fileID: 1840512985}
-  QuestContent: {fileID: 1534154133}
   GoldText: {fileID: 1091342892}
   StageText: {fileID: 459243568}
+  QuestContent: {fileID: 1534154133}
+  SoldierContent: {fileID: 1378958960}
 --- !u!1 &1343246421
 GameObject:
   m_ObjectHideFlags: 0
@@ -2030,7 +2047,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1378958960
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2049,7 +2066,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -1, y: 0}
+  m_SizeDelta: {x: -1, y: -481.71948}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1378958961
 MonoBehaviour:

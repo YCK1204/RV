@@ -6,27 +6,18 @@ using System.IO;
 using System.Linq;
 using UnityEngine;
 
-public enum SaveType
-{
-    Quest,
-    Soldier,
-    Player,
-    All
-}
 public class DataManager
 {
     string dataPath = Application.dataPath + "/Resources/Data";
-    string questPath = "quest.json";
-    string soldierPath = "soldier.json";
+    string questPath = "quest";
+    string soldierPath = "soldier";
     string playerPath = "player.json";
 
-    public Dictionary<int, J_Quest> questData = new Dictionary<int, J_Quest>();
-    public Dictionary<int, J_Soldier> soldierData = new Dictionary<int, J_Soldier>();
-    public J_PlayerData playerData = new J_PlayerData();
-    // 퀘스트 진행상황
-    // 골드
-    // 병사
-    // 스테이지
+    public Dictionary<int, QuestData> QuestData = new Dictionary<int, QuestData>();
+    public Dictionary<int, SoldierData> SoldierData = new Dictionary<int, SoldierData>();
+    public J_PlayerData playerData;
+
+    // 절대 경로의 json파일을 T1 Wrapper로 데이터화 후 T1 Dictionary 변환
     Dictionary<int, T1> MakeDict<T1, T2>(string path, Func<T2, Dictionary<int, T1>> factory) where T2 : class
     {
         try
@@ -41,66 +32,47 @@ public class DataManager
         }
         return new Dictionary<int, T1>();
     }
-    T MakeData<T>(string path) where T : class
+    // 절대 경로의 json 파일 역직렬화
+    T MakeData<T>(string path) where T : class, new()
     {
+        T result = null;
         try
         {
             var json = File.ReadAllText(path);
-            var data = JsonConvert.DeserializeObject<T>(json);
-            return data;
+            result = JsonConvert.DeserializeObject<T>(json);
         }
         catch (Exception e)
         {
             Debug.LogError($"DataManager Load Failed to {path}");
         }
-        return null;
+        if (result == null)
+            result = new T();
+        return result;
+    }
+    // Resources 기준 path상대 경로에 있는 모든 파일을 Dictionary<int, T>로 변환하여 반환
+    Dictionary<int, T> MakeScriptableObjectDict<T>(string path, Func<T, int> extractIdentifier) where T : ScriptableObject
+    {
+        Dictionary<int, T> dict = new Dictionary<int, T>();
+
+        var allData = Manager.Resource.LoadAll<T>(path);
+
+        foreach (var data in allData)
+        {
+            var id = extractIdentifier(data);
+            if (!dict.TryAdd(id, data))
+                Debug.LogError($"Overlapped Quest Data {data.name}");
+        }
+        return dict;
     }
     public void Load()
     {
-        questData = MakeDict<J_Quest, J_QuestWrapper>($"{dataPath}/{questPath}", (wrapper) =>
-        {
-            var dict = new Dictionary<int, J_Quest>();
-            foreach (var item in wrapper.Quests)
-                dict.Add(item.Id, item);
-            return dict;
-        });
-        soldierData = MakeDict<J_Soldier, J_SoldierWrapper>($"{dataPath}/{soldierPath}", (wrapper) =>
-        {
-            var dict = new Dictionary<int, J_Soldier>();
-            foreach (var item in wrapper.Soldiers)
-                dict.Add(item.Id, item);
-            return dict;
-        });
+        QuestData = MakeScriptableObjectDict<QuestData>($"Data/{questPath}", (data) => { return data.Id; });
+        SoldierData = MakeScriptableObjectDict<SoldierData>($"Data/{soldierPath}", (data) => { return data.Id; });
         playerData = MakeData<J_PlayerData>($"{dataPath}/{playerPath}");
     }
-    public void Save(SaveType type)
+    public void Save()
     {
-        switch (type)
-        {
-            case SaveType.Quest:
-                if (!File.Exists($"{dataPath}/{questPath}"))
-                    File.Create($"{dataPath}/{questPath}");
-                File.WriteAllText($"{dataPath}/{questPath}", JsonConvert.SerializeObject(new J_QuestWrapper() { Quests = new List<J_Quest>(questData.Values) }));
-                return;
-            case SaveType.Soldier:
-                if (!File.Exists($"{dataPath}/{soldierPath}"))
-                    File.Create($"{dataPath}/{soldierPath}");
-                File.WriteAllText($"{dataPath}/{soldierPath}", JsonConvert.SerializeObject(new J_SoldierWrapper() { Soldiers = new List<J_Soldier>(soldierData.Values) }));
-                break;
-            case SaveType.Player:
-                if (!File.Exists($"{dataPath}/{playerPath}"))
-                    File.Create($"{dataPath}/{playerPath}");
-                File.WriteAllText($"{dataPath}/{playerPath}", JsonConvert.SerializeObject(playerData));
-                break;
-            default:
-                if (!File.Exists($"{dataPath}/{playerPath}")) File.Create($"{dataPath}/{playerPath}");
-                if (!File.Exists($"{dataPath}/{questPath}")) File.Create($"{dataPath}/{questPath}");
-                if (!File.Exists($"{dataPath}/{soldierPath}")) File.Create($"{dataPath}/{soldierPath}");
-                File.WriteAllText($"{dataPath}/{questPath}", JsonConvert.SerializeObject(new J_QuestWrapper() { Quests = new List<J_Quest>(questData.Values) }));
-                File.WriteAllText($"{dataPath}/{soldierPath}", JsonConvert.SerializeObject(new J_SoldierWrapper() { Soldiers = new List<J_Soldier>(soldierData.Values) }));
-                File.WriteAllText($"{dataPath}/{playerPath}", JsonConvert.SerializeObject(playerData));
-                break;
-        }
+        if (!File.Exists($"{dataPath}/{playerPath}")) File.Create($"{dataPath}/{playerPath}");
+        File.WriteAllText($"{dataPath}/{playerPath}", JsonConvert.SerializeObject(playerData));
     }
-
 }

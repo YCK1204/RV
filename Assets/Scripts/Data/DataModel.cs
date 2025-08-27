@@ -23,4 +23,6 @@ public class J_PlayerData
 {
     public int Stage { get; set; }
     public long Gold { get; set; }
+    public J_SoldierWrapper Soldiers { get; set; } = new J_SoldierWrapper();
+    public J_QuestWrapper Quests { get; set; } = new J_QuestWrapper();
 }

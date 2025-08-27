@@ -28,7 +28,10 @@ public class Manager : MonoBehaviour
             Destroy(gameObject);
 
         _instance = this;
-        DontDestroyOnLoad(gameObject);
+        if (gameObject.transform.parent != null)
+            DontDestroyOnLoad(gameObject.transform.parent.gameObject);
+        else
+            DontDestroyOnLoad(gameObject);
     }
     UIManager _ui;
     public static UIManager UI { get { return _instance._ui; } set { _instance._ui = value; } }
@@ -36,6 +39,8 @@ public class Manager : MonoBehaviour
     public static GameManager Game { get { return _instance._game; } set { _instance._game = value; } }
     ResourceManager _resource = new ResourceManager();
     public static ResourceManager Resource { get { return _instance._resource; } }
-    SceneManagerEx _scene = new SceneManagerEx();
-    public static SceneManagerEx Scene { get { return _instance._scene; } }
+    SpawnManager _spawn;
+    public static SpawnManager Spawn { get { return _instance._spawn; } set { _instance._spawn = value; } }
+    DataManager _data = new DataManager();
+    public static DataManager Data { get { return _instance._data; } }
 }

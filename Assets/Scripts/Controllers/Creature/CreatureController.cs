@@ -15,6 +15,7 @@ public abstract class CreatureController : MonoBehaviour
     protected CircleCollider2D _circleCollider2d;
     protected BoxCollider2D _boxCollider2d;
     protected GameObject _target;
+    protected SpriteRenderer[] _spriteRenderers;
     protected CreatureState State
     {
         get { return _state; }
@@ -46,7 +47,20 @@ public abstract class CreatureController : MonoBehaviour
     }
     protected Vector2 Dir { get; set; } = Vector2.zero;
     protected float Speed { get; set; } = 1f;
-    protected long HP { get; set; } = 1;
+    long _hp;
+    protected long HP
+    {
+        get { return _hp; }
+        set
+        {
+            _hp = value;
+            if (_hp <= 0)
+            {
+                _hp = 0;
+                State = CreatureState.Die;
+            }
+        }
+    }
     protected long Attack { get; set; } = 1;
     protected long Defense { get; set; } = 0;
     protected virtual void Start()
@@ -56,6 +70,8 @@ public abstract class CreatureController : MonoBehaviour
         _animator = GetComponent<Animator>();
 
         _circleCollider2d.offset = _boxCollider2d.offset;
+
+        _spriteRenderers = transform.FindChilds<SpriteRenderer>(true);
     }
     void Update()
     {
@@ -90,8 +106,30 @@ public abstract class CreatureController : MonoBehaviour
         if (_target == null)
             State = CreatureState.Walk;
     }
+    float duration = .5f;
+    float timer = 0f;
     protected virtual void UpdateDie()
     {
+        if (timer < duration)
+        {
+            foreach (var renderer in _spriteRenderers)
+            {
+                timer += Time.deltaTime;
+                float alpha = Mathf.Lerp(1f, 0f, timer / duration);
+                var color = renderer.color;
+                color.a = alpha;
+                renderer.color = color;
+            }
+        }
+        else
+        {
+            foreach (var renderer in _spriteRenderers)
+            {
+                var color = renderer.color;
+                color.a = 0f;
+                renderer.color = color;
+            }
+        }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {

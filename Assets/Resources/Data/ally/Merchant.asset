@@ -20,7 +20,7 @@ MonoBehaviour:
   speed: 1.5
   attackRange: 3
   spawnPosY: 2.5
-  prefab: {fileID: -6562976646893262586, guid: 7d908ba845b1044e6829ed5fb7c4be10, type: 3}
+  prefab: {fileID: 1459820430212963851, guid: 7d908ba845b1044e6829ed5fb7c4be10, type: 3}
   openCost: 10
   lvUpCost: 4
   lvUpHealth: 7

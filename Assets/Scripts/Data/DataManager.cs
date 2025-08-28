@@ -11,10 +11,12 @@ public class DataManager
     string dataPath = Application.dataPath + "/Resources/Data";
     string questPath = "quest";
     string soldierPath = "soldier";
+    string enemyPath = "enemy";
     string playerPath = "player.json";
 
     public Dictionary<int, QuestData> QuestData = new Dictionary<int, QuestData>();
     public Dictionary<int, SoldierData> SoldierData = new Dictionary<int, SoldierData>();
+    public Dictionary<int, EnemyData> EnemyData = new Dictionary<int, EnemyData>();
     public J_PlayerData playerData;
 
     // 절대 경로의 json파일을 T1 Wrapper로 데이터화 후 T1 Dictionary 변환
@@ -64,10 +66,17 @@ public class DataManager
         }
         return dict;
     }
+    public void Init()
+    {
+        Load();
+        Manager.Game.OnGoldChanged += () => { playerData.Gold = Manager.Game.Gold; Save(); };
+        Manager.Game.OnStageLvChanged += () => { playerData.Stage = Manager.Game.StageLevel; Save(); };
+    }
     public void Load()
     {
         QuestData = MakeScriptableObjectDict<QuestData>($"Data/{questPath}", (data) => { return data.Id; });
         SoldierData = MakeScriptableObjectDict<SoldierData>($"Data/{soldierPath}", (data) => { return data.Id; });
+        EnemyData = MakeScriptableObjectDict<EnemyData>($"Data/{enemyPath}", (data) => { return data.Id; });
         playerData = MakeData<J_PlayerData>($"{dataPath}/{playerPath}");
     }
     public void Save()

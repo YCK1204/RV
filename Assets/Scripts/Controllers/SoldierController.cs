@@ -1,0 +1,20 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Data;
+using UnityEngine;
+
+public class SoldierController : CreatureController
+{
+    public void Init(long level, long upgrade, SoldierData data)
+    {
+        HP = data.BaseUpgradeHealth + (level * data.LvUpHealth) + (upgrade * data.BaseUpgradeHealth);
+        Attack = data.BaseUpgradeAttack + (level * data.LvUpAttack) + (upgrade * data.BaseUpgradeAttack);
+        Defense = data.BaseUpgradeDefense + (level * data.LvUpDefense) + (upgrade * data.BaseUpgradeDefense);
+        Speed = data.Speed;
+        _circleCollider2d.radius = data.AttackRange;
+        Dir = Vector2.right;
+        var pos = transform.position;
+        pos.y = data.SpawnPosY;
+        transform.position = pos;
+    }
+}

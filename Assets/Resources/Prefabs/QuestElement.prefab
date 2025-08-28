@@ -124,8 +124,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: -6688905913732097777}
-        m_TargetAssemblyTypeName: Quest, Assembly-CSharp
-        m_MethodName: Activate
+        m_TargetAssemblyTypeName: UIQuest, Assembly-CSharp
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1308,6 +1308,7 @@ MonoBehaviour:
   OpenCostText: {fileID: 4871424450741314629}
   IsActive: 0
   Data: {fileID: 0}
+  _lv: 0
 --- !u!1 &6427832622527296237
 GameObject:
   m_ObjectHideFlags: 0

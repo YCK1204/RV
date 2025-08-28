@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Soldier : MonoBehaviour
+public class UISoldier : MonoBehaviour
 {
     [SerializeField]
     Image SoldierIcon;
@@ -27,7 +28,6 @@ public class Soldier : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI SpawnCostText;
 
-
     [SerializeField]
     Button OpenOrLvUpBtn;
     [SerializeField]
@@ -38,8 +38,11 @@ public class Soldier : MonoBehaviour
     #region data
     SoldierData _data;
 
+    public int Id { get; set; }
+    public int CharId { get; set; }
+
     long _lv = 0;
-    long Lv
+    public long Lv
     {
         get { return _lv; }
         set
@@ -48,13 +51,14 @@ public class Soldier : MonoBehaviour
                 return;
             _lv = value;
             LevelText.text = "Lv." + _lv.ToString();
-            AttackPower = _data.Attack + (_data.BaseUpgradeAttack * _lv);
-            Health = _data.Health + (_data.BaseUpgradeHealth * _lv);
-            DefensePower = _data.Defense + (_data.BaseUpgradeDefense * _lv);
+            AttackPower = _data.Attack + (_lv * _data.LvUpAttack) + (Upgrade * _data.BaseUpgradeAttack);
+            Health = _data.Health + (_lv * _data.LvUpHealth) + (Upgrade * _data.BaseUpgradeHealth);
+            DefensePower = _data.Defense + (_lv * _data.LvUpDefense) + (Upgrade * _data.BaseUpgradeDefense);
+            OnLvOrUpgradeChanged();
         }
     }
     long _upgrade = 0;
-    long Upgrade
+    public long Upgrade
     {
         get { return _upgrade; }
         set
@@ -63,6 +67,7 @@ public class Soldier : MonoBehaviour
                 return;
             _upgrade = value;
             UpgradeText.text = "+" + _upgrade.ToString();
+            OnLvOrUpgradeChanged();
         }
     }
     long _attackPower = 0;
@@ -104,24 +109,18 @@ public class Soldier : MonoBehaviour
     [HideInInspector]
     #endregion
     public bool IsActive = false;
-
-    [SerializeField]
-    SoldierData Data;
     public void Init(SoldierData data)
     {
         _data = data;
+        CharId = data.CharId;
         Lv = 1;
-        SoldierName.text = _data.SoldierName;
+        SoldierName.text = _data.name;
         AttackPower = _data.Attack;
         Health = _data.Health;
         DefensePower = _data.Defense;
         SpawnCostText.text = _data.SpawnCost.ToString();
         LvUpCostText.text = _data.UpgradeCost.ToString();
         OpenCostText.text = _data.OpenCost.ToString();
-    }
-    private void Start()
-    {
-        Init(Data);
     }
     public bool Openable()
     {
@@ -150,7 +149,7 @@ public class Soldier : MonoBehaviour
         Manager.Game.Gold -= _data.SpawnCost;
         // spawn
     }
-    public void OnClickOpenOrLvUp()
+    public void OnClickOpenOrLvUp(bool loaded = false)
     {
         if (IsActive)
         {
@@ -161,12 +160,15 @@ public class Soldier : MonoBehaviour
         }
         else
         {
-            if (Manager.Game.Gold < _data.OpenCost)
-                return;
+            if (loaded == false)
+            {
+                if (Manager.Game.Gold < _data.OpenCost)
+                    return;
+                Manager.Game.Gold -= _data.OpenCost;
+            }
             IsActive = true;
             OpenCostText.gameObject.SetActive(false);
             LvUpCostText.gameObject.SetActive(true);
-            Manager.Game.Gold -= _data.OpenCost;
             //Openable();
         }
     }
@@ -176,5 +178,14 @@ public class Soldier : MonoBehaviour
         {
             Manager.UI.Soldier.Add(this);
         }
+    }
+    void OnLvOrUpgradeChanged()
+    {
+        var soldier = Manager.Data.playerData.Soldiers.Soldiers.Where(s => s.Id == Id).FirstOrDefault();
+
+        if (soldier == null) return;
+        soldier.Level = Lv;
+        soldier.Upgrade = Upgrade;
+        Manager.Data.Save();
     }
 }

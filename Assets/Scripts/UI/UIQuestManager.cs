@@ -3,19 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuestManager : MonoBehaviour, IFooter
+public class UIQuestManager : MonoBehaviour, IFooter
 {
-    public List<Quest> Quests = new List<Quest>();
+    [HideInInspector]
+    public UIQuest UIQuestPrefab;
+    public List<UIQuest> Quests = new List<UIQuest>();
     public RectTransform QuestContent;
     private void Start()
     {
         Init();
     }
-    public void Add(Quest quest)
+    public void Add(UIQuest quest)
     {
         if (Quests.Contains(quest))
             return;
         Quests.Add(quest);
+        Manager.Data.playerData.Quests.Quests.Add(new J_Quest() { Id = quest.Id, Level = quest.Lv });
+        Manager.Data.Save();
     }
     public void Enter()
     {
@@ -31,6 +35,16 @@ public class QuestManager : MonoBehaviour, IFooter
     {
         Manager.UI.Quest = this;
         Manager.Game.OnGoldChanged += OnGoldChanged;
+        var quests = Manager.Data.playerData.Quests.Quests;
+        foreach (var quest in quests)
+        {
+            var questUi = Manager.Resource.Instantiate<UIQuest>(UIQuestPrefab, QuestContent);
+            var data = Manager.Data.QuestData[quest.Id];
+            questUi.Init(data);
+            questUi.Lv = quest.Level;
+            questUi.OnActivated(data.OpenCost, true);
+            Quests.Add(questUi);
+        }
     }
     void OnGoldChanged()
     {

@@ -488,9 +488,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7275030831047567252}
-        m_TargetAssemblyTypeName: Soldier, Assembly-CSharp
+        m_TargetAssemblyTypeName: UISoldier, Assembly-CSharp
         m_MethodName: OnClickOpenOrLvUp
-        m_Mode: 1
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -695,7 +695,6 @@ MonoBehaviour:
   LvUpCostText: {fileID: 4211799428494922525}
   OpenCostText: {fileID: 7550759647323616778}
   IsActive: 0
-  Data: {fileID: 0}
 --- !u!1 &5005399896510480549
 GameObject:
   m_ObjectHideFlags: 0

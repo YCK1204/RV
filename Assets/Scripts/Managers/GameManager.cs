@@ -1,28 +1,31 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 public class GameManager
 {
     public Action OnGoldChanged = null;
+    public Action OnStageLvChanged = null;
     long _gold = 0;
     public long Gold
     {
         get { return _gold; }
         set
         {
+            if (_gold == value)
+                return;
             _gold = value;
             OnGoldChanged?.Invoke();
         }
     }
-    long _lv = 1;
-    public long lv
+    int _stageLevel = 1;
+    public int StageLevel
     {
-        get { return _lv; }
+        get { return _stageLevel; }
         set
         {
-            _lv = value;
+            if (_stageLevel == value)
+                return;
+            _stageLevel = value;
+            OnStageLvChanged?.Invoke();
         }
     }
 }

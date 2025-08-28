@@ -32,6 +32,7 @@ public class Manager : MonoBehaviour
             DontDestroyOnLoad(gameObject.transform.parent.gameObject);
         else
             DontDestroyOnLoad(gameObject);
+        Data.Load();
     }
     UIManager _ui;
     public static UIManager UI { get { return _instance._ui; } set { _instance._ui = value; } }

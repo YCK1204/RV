@@ -23,11 +23,15 @@ public class UIManager : MonoBehaviour
     TextMeshProUGUI StageText;
 
     [SerializeField]
+    UIQuest QuestPrefab;
+    [SerializeField]
+    UISoldier SoldierPrefab;
+    [SerializeField]
     public RectTransform QuestContent;
     [SerializeField]
     public RectTransform SoldierContent;
-    public QuestManager Quest { get; set; }
-    public SoldierManager Soldier { get; set; }
+    public UIQuestManager Quest { get; set; }
+    public UISoldierManager Soldier { get; set; }
 
     IFooter _state;
     public IFooter State
@@ -46,15 +50,17 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         Manager.UI = this;
-        var q = new GameObject("QuestManager").AddComponent<QuestManager>();
+        var q = new GameObject("QuestManager").AddComponent<UIQuestManager>();
         q.transform.SetParent(gameObject.transform);
         Quest = q;
         q.QuestContent = QuestContent;
+        q.UIQuestPrefab = QuestPrefab;
 
-        var s = new GameObject("SoldierManager").AddComponent<SoldierManager>();
+        var s = new GameObject("SoldierManager").AddComponent<UISoldierManager>();
         s.transform.SetParent(gameObject.transform);
         Soldier = s;
         s.SoldierContent = SoldierContent;
+        s.SoldierUI = SoldierPrefab;
         Manager.Game.OnGoldChanged += OnGoldChanged;
     }
     private void Update()

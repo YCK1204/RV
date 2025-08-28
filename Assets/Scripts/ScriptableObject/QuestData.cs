@@ -6,6 +6,9 @@ using UnityEngine;
 public class QuestData : ScriptableObject
 {
     [SerializeField]
+    int _id;
+    public int Id { get { return _id; } }
+    [SerializeField]
     Sprite _icon;
     public Sprite Icon { get { return _icon; } }
     [SerializeField]

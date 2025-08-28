@@ -1,35 +1,29 @@
-#if UNITY_EDITOR
-using UnityEditor.Animations;
-#endif
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "SoldierData", menuName = "ScriptableObjects/SoldierData", order = 2)]
-public class SoldierData : ScriptableObject
+public class SoldierData : CreatureData
 {
     [SerializeField]
-    private string soldierName;
-    public string SoldierName { get { return soldierName; } }
+    int charId;
+    public int CharId { get { return charId; } }
     [SerializeField]
-    private long health;
-    public long Health { get { return health; } }
-    [SerializeField]
-    private long attack;
-    public long Attack { get { return attack; } }
-    [SerializeField]
-    private long defense;
-    public long Defense { get { return defense; } }
-    [SerializeField]
-    private float speed;
-    public float Speed { get { return speed; } }
-    [SerializeField]
-    private AnimatorController soldierAnimController;
-    public AnimatorController SoldierAnimController { get { return soldierAnimController; } }
-    [SerializeField]
-    private float attackRange;
-    public float AttackRange { get { return attackRange; } }
+    SoldierController prefab;
+    public SoldierController Prefab { get { return prefab; } }
     [SerializeField]
     private long openCost;
     public long OpenCost { get { return openCost; } }
+    [SerializeField]
+    private long lvUpCost;
+    public long LvUpCost { get { return lvUpCost; } }
+    [SerializeField]
+    private long lvUpHealth;
+    public long LvUpHealth { get { return lvUpHealth; } }
+    [SerializeField]
+    private long lvUpAttack;
+    public long LvUpAttack { get { return lvUpAttack; } }
+    [SerializeField]
+    private long lvUpDefense;
+    public long LvUpDefense { get { return lvUpDefense; } }
 
     [SerializeField]
     private long upgradeCost;

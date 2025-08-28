@@ -1,11 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Quest : MonoBehaviour
+public class UIQuest : MonoBehaviour
 {
     [SerializeField]
     Image QuestIcon;
@@ -35,8 +36,13 @@ public class Quest : MonoBehaviour
     [SerializeField]
     QuestData Data;
 
-    long _lv = 0;
-    long Lv
+
+    public int Id
+    {
+        get { return Data.Id; }
+    }
+    public long _lv = 0;
+    public long Lv
     {
         get { return _lv; }
         set
@@ -46,6 +52,7 @@ public class Quest : MonoBehaviour
             _lv = value;
             QuestUpgradeText.text = "+" + _lv.ToString();
             QuestGold = Data.BaseGoldReward + (Data.ExtraGoldPerUpgrade * _lv);
+            OnLevelChanged();
         }
     }
     long _questGold = 0;
@@ -70,10 +77,6 @@ public class Quest : MonoBehaviour
         QuestCooldownText.text = $"{m:D2}:{s:D2}";
         ExtraGoldText.text = "+" + Data.ExtraGoldPerUpgrade.ToString();
         UpgradeCostText.text = "G " + Data.UpgradeCost.ToString();
-    }
-    private void Start()
-    {
-        Init(Data);
     }
     public bool Openable()
     {
@@ -104,9 +107,10 @@ public class Quest : MonoBehaviour
             QuestGold = Data.BaseGoldReward + (Data.ExtraGoldPerUpgrade * Lv);
         }
     }
-    public void OnActivated(long openCost)
+    public void OnActivated(long openCost, bool loaded = false)
     {
-        Manager.Game.Gold -= openCost;
+        if (!loaded)
+            Manager.Game.Gold -= openCost;
         IsActive = true;
         OpenCostText.gameObject.SetActive(false);
         UpgradeCostText.gameObject.SetActive(true);
@@ -137,5 +141,14 @@ public class Quest : MonoBehaviour
             Manager.Game.Gold += QuestGold;
             elapsed = 0;
         }
+    }
+    void OnLevelChanged()
+    {
+        var quest = Manager.Data.playerData.Quests.Quests.Where(q => q.Id == Id).FirstOrDefault();
+
+        if (quest == null)
+            return;
+        quest.Level = Lv;
+        Manager.Data.Save();
     }
 }

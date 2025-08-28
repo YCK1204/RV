@@ -6,14 +6,22 @@ using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+[Serializable]
+public class IgnoreCollision
+{
+    public LayerMask collider1;
+    public LayerMask collider2;
+}
 public class SpawnManager : MonoBehaviour
 {
     [SerializeField]
-    GameObject SoldierSpawnPos;
+    GameObject AllySpawnPos;
     [SerializeField]
     GameObject EnemySpawnPos;
+    [SerializeField]
+    List<IgnoreCollision> IgnoreCollisions = new List<IgnoreCollision>();
 
-    List<SoldierController> Soldiers = new List<SoldierController>();
+    List<AllyController> Allys = new List<AllyController>();
     List<EnemyController> Enemies = new List<EnemyController>();
     private void Start()
     {
@@ -22,20 +30,41 @@ public class SpawnManager : MonoBehaviour
     void Init()
     {
         Manager.Spawn = this;
-        SpawnSoldiers();
-        SpawnEnemies();
+        foreach (var ic in IgnoreCollisions)
+        {
+            var layers1 = LayerMaskToLayers(ic.collider1);
+            var layers2 = LayerMaskToLayers(ic.collider2);
+            foreach (var l1 in layers1)
+            {
+                foreach (var l2 in layers2)
+                    Physics2D.IgnoreLayerCollision(l1, l2, true);
+            }
+        }
     }
-    public void SpawnSoldiers()
+    private static int[] LayerMaskToLayers(LayerMask mask)
     {
-        foreach (var soldierData in Manager.Data.playerData.Soldiers.Soldiers)
+        var layers = new List<int>();
+        int value = mask.value;
+
+        for (int i = 0; i < 32; i++)
+        {
+            if ((value & (1 << i)) != 0)
+                layers.Add(i);
+        }
+
+        return layers.ToArray();
+    }
+    public void SpawnAllys()
+    {
+        foreach (var soldierData in Manager.Data.playerData.Allys.Allys)
         {
             var sc = soldierData.Clone();
             if (sc == null)
                 continue;
             var pos = sc.transform.position;
-            pos.x = SoldierSpawnPos.transform.position.x;
+            pos.x = AllySpawnPos.transform.position.x;
             sc.transform.position = pos;
-            Soldiers.Add(sc);
+            Allys.Add(sc);
         }
     }
     public void SpawnEnemies()
@@ -53,11 +82,19 @@ public class SpawnManager : MonoBehaviour
             Enemies.Add(ec);
         }
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SpawnAllys();
+            SpawnEnemies();
+        }
+    }
     public void ClearAll()
     {
-        foreach (var soldier in Soldiers)
+        foreach (var soldier in Allys)
             Destroy(soldier.gameObject);
-        Soldiers.Clear();
+        Allys.Clear();
         foreach (var enemy in Enemies)
             Destroy(enemy.gameObject);
         Enemies.Clear();

@@ -14,6 +14,7 @@ public abstract class CreatureController : MonoBehaviour
     Animator _animator;
     protected CircleCollider2D _circleCollider2d;
     protected BoxCollider2D _boxCollider2d;
+    protected GameObject _target;
     protected CreatureState State
     {
         get { return _state; }
@@ -60,6 +61,8 @@ public abstract class CreatureController : MonoBehaviour
     {
         UpdateController();
     }
+    public abstract void OnAttack();
+
     protected virtual void UpdateController()
     {
         switch (State)
@@ -79,13 +82,28 @@ public abstract class CreatureController : MonoBehaviour
     {
         if (Dir != Vector2.zero)
         {
+            transform.position += (Vector3)(Dir.normalized * Speed * Time.deltaTime);
         }
     }
     protected virtual void UpdateAttack()
     {
+        if (_target == null)
+            State = CreatureState.Walk;
     }
     protected virtual void UpdateDie()
     {
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (_target != null)
+            return;
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Aura"))
+            return;
+        var distance = Vector2.Distance(collision.gameObject.transform.position, transform.position);
+        if (distance > _circleCollider2d.radius)
+            return;
+        _target = collision.gameObject;
+        State = CreatureState.Attack;
     }
     public void OnDied()
     {

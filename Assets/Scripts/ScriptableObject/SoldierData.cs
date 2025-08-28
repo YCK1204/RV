@@ -1,11 +1,11 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "SoldierData", menuName = "ScriptableObjects/SoldierData", order = 2)]
-public class SoldierData : CreatureData
+[CreateAssetMenu(fileName = "AllyData", menuName = "ScriptableObjects/AllyData", order = 2)]
+public class AllyData : CreatureData
 {
     [SerializeField]
-    SoldierController prefab;
-    public SoldierController Prefab { get { return prefab; } }
+    AllyController prefab;
+    public AllyController Prefab { get { return prefab; } }
     [SerializeField]
     private long openCost;
     public long OpenCost { get { return openCost; } }

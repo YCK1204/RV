@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Data;
 using UnityEngine;
 
-public class SoldierController : CreatureController
+public abstract class AllyController : CreatureController
 {
-    public void Init(long level, long upgrade, SoldierData data)
+    public void Init(long level, long upgrade, AllyData data)
     {
         HP = data.BaseUpgradeHealth + (level * data.LvUpHealth) + (upgrade * data.BaseUpgradeHealth);
         Attack = data.BaseUpgradeAttack + (level * data.LvUpAttack) + (upgrade * data.BaseUpgradeAttack);

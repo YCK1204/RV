@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7adba134b5a33c848b2445d529c8bf81, type: 3}
-  m_Name: Soldier
+  m_Name: Thief
   m_EditorClassIdentifier: 
-  id: 4
-  name: Soldier
+  id: 5
+  name: Thief
   health: 100
   attack: 20
   defense: 30
-  speed: 3
+  speed: 1.5
   attackRange: 3
-  spawnPosY: 2.7
-  prefab: {fileID: 7364300946358693256, guid: 315058484cf2044ce8dcb608b4678ff6, type: 3}
+  spawnPosY: 2.5
+  prefab: {fileID: 8992346899333881999, guid: 13c470c5b8dcd4854834911f7e0a9a6c, type: 3}
   openCost: 10
   lvUpCost: 4
   lvUpHealth: 7

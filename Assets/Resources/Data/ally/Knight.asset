@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7adba134b5a33c848b2445d529c8bf81, type: 3}
-  m_Name: Thief
+  m_Name: Knight
   m_EditorClassIdentifier: 
-  id: 5
-  name: Thief
+  id: 0
+  name: Knight
   health: 100
   attack: 20
   defense: 30
-  speed: 3
-  attackRange: 3
-  spawnPosY: 2.7
-  prefab: {fileID: 8992346899333881999, guid: 13c470c5b8dcd4854834911f7e0a9a6c, type: 3}
+  speed: 1.5
+  attackRange: 1.5
+  spawnPosY: 2.5
+  prefab: {fileID: 6526965315133144509, guid: 978fa2fb617654f5eaeff9da6fc7d116, type: 3}
   openCost: 10
   lvUpCost: 4
   lvUpHealth: 7

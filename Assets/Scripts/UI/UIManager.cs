@@ -25,13 +25,13 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     UIQuest QuestPrefab;
     [SerializeField]
-    UISoldier SoldierPrefab;
+    UIAlly AllyPrefab;
     [SerializeField]
     public RectTransform QuestContent;
     [SerializeField]
-    public RectTransform SoldierContent;
+    public RectTransform AllyContent;
     public UIQuestManager Quest { get; set; }
-    public UISoldierManager Soldier { get; set; }
+    public UIAllyManager Ally { get; set; }
 
     IFooter _state;
     public IFooter State
@@ -56,11 +56,11 @@ public class UIManager : MonoBehaviour
         q.QuestContent = QuestContent;
         q.UIQuestPrefab = QuestPrefab;
 
-        var s = new GameObject("SoldierManager").AddComponent<UISoldierManager>();
+        var s = new GameObject("AllyManager").AddComponent<UIAllyManager>();
         s.transform.SetParent(gameObject.transform);
-        Soldier = s;
-        s.SoldierContent = SoldierContent;
-        s.SoldierUI = SoldierPrefab;
+        Ally = s;
+        s.AllyContent = AllyContent;
+        s.AllyUI = AllyPrefab;
         Manager.Game.OnGoldChanged += OnGoldChanged;
     }
     private void Update()
@@ -82,8 +82,8 @@ public class UIManager : MonoBehaviour
     {
         State = Quest;
     }
-    public void ToSoldier()
+    public void ToAlly()
     {
-        State = Soldier;
+        State = Ally;
     }
 }

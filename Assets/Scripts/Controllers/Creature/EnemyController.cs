@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : CreatureController
+public abstract class EnemyController : CreatureController
 {
     public void Init(EnemyData data)
     {

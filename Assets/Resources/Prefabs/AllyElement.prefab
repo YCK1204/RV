@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 3655029093484327620}
   - component: {fileID: 8091322256777896012}
   m_Layer: 5
-  m_Name: SoldierIcon
+  m_Name: AllyIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -644,7 +644,7 @@ GameObject:
   - component: {fileID: 2812938501893204701}
   - component: {fileID: 7275030831047567252}
   m_Layer: 5
-  m_Name: SoldierElement
+  m_Name: AllyElement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -682,10 +682,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9edd9cced2f0874d8165bd032d29159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SoldierIcon: {fileID: 8091322256777896012}
+  AllyIcon: {fileID: 0}
   UpgradeText: {fileID: 3858841262908465828}
   LevelText: {fileID: 5411520032262444387}
-  SoldierName: {fileID: 7710992047483096761}
+  AllyName: {fileID: 7710992047483096761}
   AttackPowerText: {fileID: 7436496926745278336}
   HealthText: {fileID: 1932239098689306120}
   DefensePowerText: {fileID: 5922293764493160326}
@@ -1188,7 +1188,7 @@ GameObject:
   - component: {fileID: 5132458264941971635}
   - component: {fileID: 7710992047483096761}
   m_Layer: 5
-  m_Name: SoldierName
+  m_Name: AllyName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

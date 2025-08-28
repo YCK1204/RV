@@ -17,10 +17,10 @@ MonoBehaviour:
   health: 10
   attack: 3
   defense: 4
-  speed: 5
+  speed: 2
   attackRange: 2
-  spawnPosY: 3.5
-  prefab: {fileID: 9213787363796278968, guid: dc4eb993c6c2e434f88d7a71922b2879, type: 3}
+  spawnPosY: 2.5
+  prefab: {fileID: 3029071502989833120, guid: dc4eb993c6c2e434f88d7a71922b2879, type: 3}
   stageHealth: 1
   stageAttack: 1
   stageDefense: 1

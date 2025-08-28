@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7adba134b5a33c848b2445d529c8bf81, type: 3}
-  m_Name: Merchant
+  m_Name: Priest
   m_EditorClassIdentifier: 
-  id: 1
-  name: Merchant
+  id: 3
+  name: Priest
   health: 100
   attack: 20
   defense: 30
-  speed: 3
+  speed: 1.5
   attackRange: 3
-  spawnPosY: 2.7
-  prefab: {fileID: -6562976646893262586, guid: 7d908ba845b1044e6829ed5fb7c4be10, type: 3}
+  spawnPosY: 2.5
+  prefab: {fileID: -7981772232704094534, guid: 389c7e1a1dabb4e1e917001420b89c9a, type: 3}
   openCost: 10
   lvUpCost: 4
   lvUpHealth: 7

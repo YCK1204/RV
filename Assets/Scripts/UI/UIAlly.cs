@@ -5,17 +5,17 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UISoldier : MonoBehaviour
+public class UIAlly : MonoBehaviour
 {
     [SerializeField]
-    Image SoldierIcon;
+    Image AllyIcon;
     [SerializeField]
     TextMeshProUGUI UpgradeText;
     [SerializeField]
     TextMeshProUGUI LevelText;
 
     [SerializeField]
-    TextMeshProUGUI SoldierName;
+    TextMeshProUGUI AllyName;
     [SerializeField]
     TextMeshProUGUI AttackPowerText;
     [SerializeField]
@@ -36,7 +36,7 @@ public class UISoldier : MonoBehaviour
     TextMeshProUGUI OpenCostText;
 
     #region data
-    SoldierData _data;
+    AllyData _data;
 
     public int Id { get; set; }
     public int CharId { get; set; }
@@ -109,12 +109,12 @@ public class UISoldier : MonoBehaviour
     [HideInInspector]
     #endregion
     public bool IsActive = false;
-    public void Init(SoldierData data)
+    public void Init(AllyData data)
     {
         _data = data;
         CharId = data.Id;
         Lv = 1;
-        SoldierName.text = _data.name;
+        AllyName.text = _data.name;
         AttackPower = _data.Attack;
         Health = _data.Health;
         DefensePower = _data.Defense;
@@ -176,12 +176,12 @@ public class UISoldier : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.S))
         {
-            Manager.UI.Soldier.Add(this);
+            Manager.UI.Ally.Add(this);
         }
     }
     void OnLvOrUpgradeChanged()
     {
-        var soldier = Manager.Data.playerData.Soldiers.Soldiers.Where(s => s.Id == Id).FirstOrDefault();
+        var soldier = Manager.Data.playerData.Allys.Allys.Where(s => s.Id == Id).FirstOrDefault();
 
         if (soldier == null) return;
         soldier.Level = Lv;

@@ -214,6 +214,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GhostPSB
       objectReference: {fileID: 0}
+    - target: {fileID: -8089108032486474258, guid: 3e4a209cd7b30854a90f86798787df48, type: 3}
+      propertyPath: m_SortingOrder
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 3e4a209cd7b30854a90f86798787df48, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -274,6 +278,10 @@ PrefabInstance:
       propertyPath: m_Bounds.m_Extent.y
       value: 0.6203016
       objectReference: {fileID: 0}
+    - target: {fileID: -6892423519363176949, guid: 3e4a209cd7b30854a90f86798787df48, type: 3}
+      propertyPath: m_SortingOrder
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: -6222978994577401434, guid: 3e4a209cd7b30854a90f86798787df48, type: 3}
       propertyPath: m_Bounds.m_Center.x
       value: -0.052045703
@@ -310,6 +318,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 2.42855
       objectReference: {fileID: 0}
+    - target: {fileID: -3007667185037498341, guid: 3e4a209cd7b30854a90f86798787df48, type: 3}
+      propertyPath: m_SortingOrder
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: -2125566347423556913, guid: 3e4a209cd7b30854a90f86798787df48, type: 3}
       propertyPath: m_Bounds.m_Center.x
       value: 0.1300472
@@ -345,6 +357,18 @@ PrefabInstance:
     - target: {fileID: 1232240213116269087, guid: 3e4a209cd7b30854a90f86798787df48, type: 3}
       propertyPath: m_Bounds.m_Extent.y
       value: 0.99586695
+      objectReference: {fileID: 0}
+    - target: {fileID: 2065051283811077274, guid: 3e4a209cd7b30854a90f86798787df48, type: 3}
+      propertyPath: m_SortingOrder
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929451477958215980, guid: 3e4a209cd7b30854a90f86798787df48, type: 3}
+      propertyPath: m_SortingOrder
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406114324295554177, guid: 3e4a209cd7b30854a90f86798787df48, type: 3}
+      propertyPath: m_SortingOrder
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 8990476262993031507, guid: 3e4a209cd7b30854a90f86798787df48, type: 3}
       propertyPath: m_Bounds.m_Center.x

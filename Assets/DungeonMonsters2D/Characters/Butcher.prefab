@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 180
   m_Sprite: {fileID: 21300000, guid: 8d9a5393f56243148969637f8a8c7610, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
@@ -330,9 +330,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8074491022817363097}
     m_Modifications:
+    - target: {fileID: -8913533962594999635, guid: cf6e6d8eb6faba747b21257d64003b3e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: -8653719598885068355, guid: cf6e6d8eb6faba747b21257d64003b3e, type: 3}
       propertyPath: m_Name
       value: MeatGolemPSB
+      objectReference: {fileID: 0}
+    - target: {fileID: -8089108032486474258, guid: cf6e6d8eb6faba747b21257d64003b3e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: cf6e6d8eb6faba747b21257d64003b3e, type: 3}
       propertyPath: m_RootOrder
@@ -413,6 +421,14 @@ PrefabInstance:
     - target: {fileID: -4997619271684086245, guid: cf6e6d8eb6faba747b21257d64003b3e, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.0000001622545
+      objectReference: {fileID: 0}
+    - target: {fileID: -4457772106480614152, guid: cf6e6d8eb6faba747b21257d64003b3e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: -3007667185037498341, guid: cf6e6d8eb6faba747b21257d64003b3e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: -2620204017313316513, guid: cf6e6d8eb6faba747b21257d64003b3e, type: 3}
       propertyPath: m_Bounds.m_Center.x
@@ -498,6 +514,10 @@ PrefabInstance:
       propertyPath: m_Bounds.m_Extent.x
       value: 0.50714993
       objectReference: {fileID: 0}
+    - target: {fileID: 345725224739359462, guid: cf6e6d8eb6faba747b21257d64003b3e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 663940973335450567, guid: cf6e6d8eb6faba747b21257d64003b3e, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.000000081894285
@@ -533,6 +553,14 @@ PrefabInstance:
     - target: {fileID: 1232240213116269087, guid: cf6e6d8eb6faba747b21257d64003b3e, type: 3}
       propertyPath: m_Bounds.m_Extent.y
       value: 1.3187194
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929451477958215980, guid: cf6e6d8eb6faba747b21257d64003b3e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 5638863962959275187, guid: cf6e6d8eb6faba747b21257d64003b3e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 8662133023439222574, guid: cf6e6d8eb6faba747b21257d64003b3e, type: 3}
       propertyPath: m_LocalRotation.w

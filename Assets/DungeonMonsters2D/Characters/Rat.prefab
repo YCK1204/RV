@@ -230,6 +230,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -8913533962594999635, guid: 182499511eda5fd4d85381b53a9e3361, type: 3}
+      propertyPath: m_SortingOrder
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: -8653719598885068355, guid: 182499511eda5fd4d85381b53a9e3361, type: 3}
       propertyPath: m_Name
       value: RatMonsterPSB
@@ -370,6 +374,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -4457772106480614152, guid: 182499511eda5fd4d85381b53a9e3361, type: 3}
+      propertyPath: m_SortingOrder
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: -4222339578063887758, guid: 182499511eda5fd4d85381b53a9e3361, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.119522065
@@ -430,6 +438,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3276374382219496712, guid: 182499511eda5fd4d85381b53a9e3361, type: 3}
+      propertyPath: m_SortingOrder
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: -3204924767424582536, guid: 182499511eda5fd4d85381b53a9e3361, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.88017
@@ -457,6 +469,10 @@ PrefabInstance:
     - target: {fileID: -3180978689183888721, guid: 182499511eda5fd4d85381b53a9e3361, type: 3}
       propertyPath: m_Color.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3180978689183888721, guid: 182499511eda5fd4d85381b53a9e3361, type: 3}
+      propertyPath: m_SortingOrder
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: -3179106138055727454, guid: 182499511eda5fd4d85381b53a9e3361, type: 3}
       propertyPath: m_LocalRotation.w
@@ -529,6 +545,10 @@ PrefabInstance:
     - target: {fileID: -1763270092976011563, guid: 182499511eda5fd4d85381b53a9e3361, type: 3}
       propertyPath: m_Color.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1763270092976011563, guid: 182499511eda5fd4d85381b53a9e3361, type: 3}
+      propertyPath: m_SortingOrder
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: -1569312777939463593, guid: 182499511eda5fd4d85381b53a9e3361, type: 3}
       propertyPath: m_LocalRotation.w
@@ -754,13 +774,25 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5359103177601667974, guid: 182499511eda5fd4d85381b53a9e3361, type: 3}
+      propertyPath: m_SortingOrder
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 5865585753007854794, guid: 182499511eda5fd4d85381b53a9e3361, type: 3}
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5865585753007854794, guid: 182499511eda5fd4d85381b53a9e3361, type: 3}
+      propertyPath: m_SortingOrder
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 6480651604138226042, guid: 182499511eda5fd4d85381b53a9e3361, type: 3}
       propertyPath: m_Color.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6480651604138226042, guid: 182499511eda5fd4d85381b53a9e3361, type: 3}
+      propertyPath: m_SortingOrder
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 7090559963594347857, guid: 182499511eda5fd4d85381b53a9e3361, type: 3}
       propertyPath: m_Bounds.m_Center.x

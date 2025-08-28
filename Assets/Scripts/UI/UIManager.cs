@@ -62,17 +62,12 @@ public class UIManager : MonoBehaviour
         s.AllyContent = AllyContent;
         s.AllyUI = AllyPrefab;
         Manager.Game.OnGoldChanged += OnGoldChanged;
-    }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            Manager.Game.Gold++;
-        }
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            Manager.Game.Gold--;
-        }
+
+        Manager.Game.Gold = Manager.Data.playerData.Gold;
+        Manager.Game.StageLevel = Manager.Data.playerData.Stage;
+        GoldText.text = "G" + Manager.Game.Gold.ToString();
+        StageText.text = "STAGE " + Manager.Game.StageLevel.ToString();
+        ToQuest();
     }
     void OnGoldChanged()
     {

@@ -26,9 +26,6 @@ public class AllyData : CreatureData
     private long upgradeCost;
     public long UpgradeCost { get { return upgradeCost; } }
     [SerializeField]
-    private long spawnCost;
-    public long SpawnCost { get { return spawnCost; } }
-    [SerializeField]
     private long baseUpgradeHealth;
     public long BaseUpgradeHealth { get { return baseUpgradeHealth; } }
     [SerializeField]

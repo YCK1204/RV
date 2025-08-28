@@ -69,8 +69,8 @@ public class DataManager
     public void Init()
     {
         Load();
-        Manager.Game.OnGoldChanged += () => { playerData.Gold = Manager.Game.Gold; Save(); };
-        Manager.Game.OnStageLvChanged += () => { playerData.Stage = Manager.Game.StageLevel; Save(); };
+        Manager.Game.OnGoldChanged += OnGoldChanged;
+        Manager.Game.OnStageLvChanged += OnStageLvChanged;
     }
     public void Load()
     {
@@ -83,5 +83,15 @@ public class DataManager
     {
         if (!File.Exists($"{dataPath}/{playerPath}")) File.Create($"{dataPath}/{playerPath}");
         File.WriteAllText($"{dataPath}/{playerPath}", JsonConvert.SerializeObject(playerData));
+    }
+    public void OnGoldChanged()
+    {
+        playerData.Gold = Manager.Game.Gold;
+        Save();
+    }
+    public void OnStageLvChanged()
+    {
+        playerData.Stage = Manager.Game.StageLevel;
+        Save();
     }
 }

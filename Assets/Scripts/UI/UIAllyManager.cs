@@ -37,7 +37,6 @@ public class UIAllyManager : MonoBehaviour, IFooter
             soldierUi.Id = soldier.Id;
             soldierUi.Lv = soldier.Level;
             soldierUi.Upgrade = soldier.Upgrade;
-            soldierUi.OnClickOpenOrLvUp(true);
             _soldiers.Add(soldierUi);
         }
     }

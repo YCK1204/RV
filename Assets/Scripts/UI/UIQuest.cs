@@ -123,13 +123,6 @@ public class UIQuest : MonoBehaviour
         ExtraGoldText.gameObject.SetActive(true);
     }
     float elapsed = 0;
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            Manager.UI.Quest.Add(this);
-        }
-    }
     public void UpdateController()
     {
         if (!IsActive)

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,16 +25,14 @@ public class UIAlly : MonoBehaviour
     TextMeshProUGUI DefensePowerText;
 
     [SerializeField]
-    Button SpawnBtn;
+    Button UpgradeBtn;
     [SerializeField]
-    TextMeshProUGUI SpawnCostText;
+    TextMeshProUGUI UpgradeCostText;
 
     [SerializeField]
-    Button OpenOrLvUpBtn;
+    Button LvUpBtn;
     [SerializeField]
     TextMeshProUGUI LvUpCostText;
-    [SerializeField]
-    TextMeshProUGUI OpenCostText;
 
     #region data
     AllyData _data;
@@ -67,6 +66,9 @@ public class UIAlly : MonoBehaviour
                 return;
             _upgrade = value;
             UpgradeText.text = "+" + _upgrade.ToString();
+            AttackPower = _data.Attack + (_lv * _data.LvUpAttack) + (Upgrade * _data.BaseUpgradeAttack);
+            Health = _data.Health + (_lv * _data.LvUpHealth) + (Upgrade * _data.BaseUpgradeHealth);
+            DefensePower = _data.Defense + (_lv * _data.LvUpDefense) + (Upgrade * _data.BaseUpgradeDefense);
             OnLvOrUpgradeChanged();
         }
     }
@@ -106,9 +108,7 @@ public class UIAlly : MonoBehaviour
             DefensePowerText.text = _defensePower.ToString();
         }
     }
-    [HideInInspector]
     #endregion
-    public bool IsActive = false;
     public void Init(AllyData data)
     {
         _data = data;
@@ -118,66 +118,22 @@ public class UIAlly : MonoBehaviour
         AttackPower = _data.Attack;
         Health = _data.Health;
         DefensePower = _data.Defense;
-        SpawnCostText.text = _data.SpawnCost.ToString();
+        UpgradeCostText.text = _data.UpgradeCost.ToString();
         LvUpCostText.text = _data.UpgradeCost.ToString();
-        OpenCostText.text = _data.OpenCost.ToString();
     }
-    public bool Openable()
+    public void OnClickUpgrade()
     {
-        bool enable = true;
-
-        if (IsActive)
-        {
-            enable &= Manager.Game.Gold >= _data.SpawnCost;
-            SpawnBtn.interactable = enable;
-            enable &= Manager.Game.Gold >= _data.UpgradeCost;
-            OpenOrLvUpBtn.interactable = enable;
-        }
-        else
-        {
-            enable &= Manager.Game.Gold >= _data.OpenCost;
-            OpenOrLvUpBtn.interactable = enable;
-        }
-        return enable;
-    }
-    public void OnClickSpawn()
-    {
-        if (!IsActive)
+        if (Manager.Game.Gold < _data.UpgradeCost)
             return;
-        if (Manager.Game.Gold < _data.SpawnCost)
+        Manager.Game.Gold -= _data.UpgradeCost;
+        Upgrade++;
+    }
+    public void OnClickLvUp(bool loaded = false)
+    {
+        if (Manager.Game.Gold < _data.LvUpCost)
             return;
-        Manager.Game.Gold -= _data.SpawnCost;
-        // spawn
-    }
-    public void OnClickOpenOrLvUp(bool loaded = false)
-    {
-        if (IsActive)
-        {
-            if (Manager.Game.Gold < _data.UpgradeCost)
-                return;
-            Manager.Game.Gold -= _data.UpgradeCost;
-            Lv++;
-        }
-        else
-        {
-            if (loaded == false)
-            {
-                if (Manager.Game.Gold < _data.OpenCost)
-                    return;
-                Manager.Game.Gold -= _data.OpenCost;
-            }
-            IsActive = true;
-            OpenCostText.gameObject.SetActive(false);
-            LvUpCostText.gameObject.SetActive(true);
-            //Openable();
-        }
-    }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            Manager.UI.Ally.Add(this);
-        }
+        Manager.Game.Gold -= _data.LvUpCost;
+        Lv++;
     }
     void OnLvOrUpgradeChanged()
     {
@@ -187,5 +143,16 @@ public class UIAlly : MonoBehaviour
         soldier.Level = Lv;
         soldier.Upgrade = Upgrade;
         Manager.Data.Save();
+    }
+    public void Openable()
+    {
+        if (Manager.Game.Gold >= _data.UpgradeCost)
+            UpgradeBtn.interactable = true;
+        else
+            UpgradeBtn.interactable = false;
+        if (Manager.Game.Gold >= _data.LvUpCost)
+            LvUpBtn.interactable = true;
+        else
+            LvUpBtn.interactable = false;
     }
 }

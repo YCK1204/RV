@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bat
   m_EditorClassIdentifier: 
   id: 0
-  name: bat
+  name: Bat
   health: 10
   attack: 3
   defense: 4

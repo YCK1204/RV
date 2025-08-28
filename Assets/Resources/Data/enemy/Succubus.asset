@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1064894aadbb074eb176be515062f3d, type: 3}
   m_Name: Succubus
   m_EditorClassIdentifier: 
-  id: 0
-  name: bat
+  id: 14
+  name: Succubus
   health: 10
   attack: 3
   defense: 4
   speed: 5
   attackRange: 2
   spawnPosY: 3.5
-  prefab: {fileID: 6054215933200566423, guid: f4602107911282542bfd45e2bf6bb648, type: 3}
+  prefab: {fileID: 7065349882246918586, guid: 0d91a1e718ea6d343be4026cdffa51c6, type: 3}
   stageHealth: 1
   stageAttack: 1
   stageDefense: 1

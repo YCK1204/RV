@@ -9,9 +9,9 @@ using Random = UnityEngine.Random;
 public class SpawnManager : MonoBehaviour
 {
     [SerializeField]
-    Vector2 SoldierSpawnPos;
+    GameObject SoldierSpawnPos;
     [SerializeField]
-    Vector2 EnemySpawnPos;
+    GameObject EnemySpawnPos;
 
     List<SoldierController> Soldiers = new List<SoldierController>();
     List<EnemyController> Enemies = new List<EnemyController>();
@@ -33,7 +33,7 @@ public class SpawnManager : MonoBehaviour
             if (sc == null)
                 continue;
             var pos = sc.transform.position;
-            pos.x = SoldierSpawnPos.x;
+            pos.x = SoldierSpawnPos.transform.position.x;
             sc.transform.position = pos;
             Soldiers.Add(sc);
         }
@@ -48,7 +48,7 @@ public class SpawnManager : MonoBehaviour
         {
             var ec = enemyList[Random.Range(0, enemySize)].Value.Clone();
             var pos = ec.transform.position;
-            pos.x = EnemySpawnPos.x;
+            pos.x = EnemySpawnPos.transform.position.x;
             ec.transform.position = pos;
             Enemies.Add(ec);
         }

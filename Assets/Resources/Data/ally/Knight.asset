@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   name: Knight
-  health: 100
-  attack: 20
-  defense: 30
+  health: 1
+  attack: 0
+  defense: 2
   speed: 1.5
   attackRange: 1.5
   spawnPosY: 2.5
@@ -28,6 +28,6 @@ MonoBehaviour:
   lvUpDefense: 7
   upgradeCost: 5
   spawnCost: 4
-  baseUpgradeHealth: 21
-  baseUpgradeAttack: 21
-  baseUpgradeDefense: 21
+  baseUpgradeHealth: 0
+  baseUpgradeAttack: 0
+  baseUpgradeDefense: 0

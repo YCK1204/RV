@@ -7,7 +7,7 @@ AnimationClip:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: DeathMagmaGolem
-  serializedVersion: 6
+  serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
   m_UseHighQualityCurve: 1
@@ -357,7 +357,8 @@ AnimationClip:
     path: MagmaGolemPSB/BoneBody/BoneNeck/BoneLeftHand
   m_ScaleCurves: []
   m_FloatCurves:
-  - curve:
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -394,7 +395,9 @@ AnimationClip:
     path: MagmaGolemPSB/Leg2
     classID: 212
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -431,7 +434,9 @@ AnimationClip:
     path: MagmaGolemPSB/Leg3
     classID: 212
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -468,7 +473,9 @@ AnimationClip:
     path: MagmaGolemPSB/Leg4
     classID: 212
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -505,7 +512,9 @@ AnimationClip:
     path: MagmaGolemPSB/Leg1
     classID: 212
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -542,7 +551,9 @@ AnimationClip:
     path: MagmaGolemPSB/Body
     classID: 212
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -579,7 +590,9 @@ AnimationClip:
     path: MagmaGolemPSB/HandRight
     classID: 212
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -616,7 +629,9 @@ AnimationClip:
     path: MagmaGolemPSB/WeaponRight
     classID: 212
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -653,7 +668,9 @@ AnimationClip:
     path: MagmaGolemPSB/Head
     classID: 212
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -690,7 +707,9 @@ AnimationClip:
     path: MagmaGolemPSB/HandLeft
     classID: 212
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -727,6 +746,7 @@ AnimationClip:
     path: MagmaGolemPSB/WeaponLeft
     classID: 212
     script: {fileID: 0}
+    flags: 16
   m_PPtrCurves: []
   m_SampleRate: 60
   m_WrapMode: 0
@@ -742,6 +762,8 @@ AnimationClip:
       typeID: 4
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     - serializedVersion: 2
       path: 4056140116
       attribute: 1
@@ -749,6 +771,8 @@ AnimationClip:
       typeID: 4
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     - serializedVersion: 2
       path: 1758107886
       attribute: 1
@@ -756,6 +780,8 @@ AnimationClip:
       typeID: 4
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     - serializedVersion: 2
       path: 533571704
       attribute: 1
@@ -763,6 +789,8 @@ AnimationClip:
       typeID: 4
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     - serializedVersion: 2
       path: 2175352283
       attribute: 1
@@ -770,6 +798,8 @@ AnimationClip:
       typeID: 4
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     - serializedVersion: 2
       path: 517544675
       attribute: 1
@@ -777,6 +807,8 @@ AnimationClip:
       typeID: 4
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     - serializedVersion: 2
       path: 24235828
       attribute: 1
@@ -784,6 +816,8 @@ AnimationClip:
       typeID: 4
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     - serializedVersion: 2
       path: 517544675
       attribute: 4
@@ -791,6 +825,8 @@ AnimationClip:
       typeID: 4
       customType: 4
       isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     - serializedVersion: 2
       path: 2310919344
       attribute: 4
@@ -798,6 +834,8 @@ AnimationClip:
       typeID: 4
       customType: 4
       isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     - serializedVersion: 2
       path: 1751403312
       attribute: 4
@@ -805,6 +843,8 @@ AnimationClip:
       typeID: 4
       customType: 4
       isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     - serializedVersion: 2
       path: 3500103819
       attribute: 304273561
@@ -812,6 +852,8 @@ AnimationClip:
       typeID: 212
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     - serializedVersion: 2
       path: 2811783197
       attribute: 304273561
@@ -819,6 +861,8 @@ AnimationClip:
       typeID: 212
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     - serializedVersion: 2
       path: 972881342
       attribute: 304273561
@@ -826,6 +870,8 @@ AnimationClip:
       typeID: 212
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     - serializedVersion: 2
       path: 1234569521
       attribute: 304273561
@@ -833,6 +879,8 @@ AnimationClip:
       typeID: 212
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     - serializedVersion: 2
       path: 4159988149
       attribute: 304273561
@@ -840,6 +888,8 @@ AnimationClip:
       typeID: 212
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     - serializedVersion: 2
       path: 1545222083
       attribute: 304273561
@@ -847,6 +897,8 @@ AnimationClip:
       typeID: 212
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     - serializedVersion: 2
       path: 3959349770
       attribute: 304273561
@@ -854,6 +906,8 @@ AnimationClip:
       typeID: 212
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     - serializedVersion: 2
       path: 2343541915
       attribute: 304273561
@@ -861,6 +915,8 @@ AnimationClip:
       typeID: 212
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     - serializedVersion: 2
       path: 317784879
       attribute: 304273561
@@ -868,6 +924,8 @@ AnimationClip:
       typeID: 212
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     - serializedVersion: 2
       path: 1266217297
       attribute: 304273561
@@ -875,6 +933,8 @@ AnimationClip:
       typeID: 212
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     pptrCurveMapping: []
   m_AnimationClipSettings:
     serializedVersion: 2
@@ -897,7 +957,8 @@ AnimationClip:
     m_HeightFromFeet: 0
     m_Mirror: 0
   m_EditorCurves:
-  - curve:
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -934,7 +995,9 @@ AnimationClip:
     path: MagmaGolemPSB/BoneBody
     classID: 4
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -971,7 +1034,9 @@ AnimationClip:
     path: MagmaGolemPSB/BoneBody
     classID: 4
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -1008,7 +1073,9 @@ AnimationClip:
     path: MagmaGolemPSB/BoneBody
     classID: 4
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -1045,7 +1112,9 @@ AnimationClip:
     path: MagmaGolemPSB/BoneLeg1
     classID: 4
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -1082,7 +1151,9 @@ AnimationClip:
     path: MagmaGolemPSB/BoneLeg1
     classID: 4
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -1119,7 +1190,9 @@ AnimationClip:
     path: MagmaGolemPSB/BoneLeg1
     classID: 4
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -1156,7 +1229,9 @@ AnimationClip:
     path: MagmaGolemPSB/BoneLeg2
     classID: 4
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -1193,7 +1268,9 @@ AnimationClip:
     path: MagmaGolemPSB/BoneLeg2
     classID: 4
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -1230,7 +1307,9 @@ AnimationClip:
     path: MagmaGolemPSB/BoneLeg2
     classID: 4
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -1267,7 +1346,9 @@ AnimationClip:
     path: MagmaGolemPSB/BoneLeg3
     classID: 4
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -1304,7 +1385,9 @@ AnimationClip:
     path: MagmaGolemPSB/BoneLeg3
     classID: 4
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -1341,7 +1424,9 @@ AnimationClip:
     path: MagmaGolemPSB/BoneLeg3
     classID: 4
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -1378,7 +1463,9 @@ AnimationClip:
     path: MagmaGolemPSB/BoneLeg4
     classID: 4
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -1415,7 +1502,9 @@ AnimationClip:
     path: MagmaGolemPSB/BoneLeg4
     classID: 4
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -1452,7 +1541,9 @@ AnimationClip:
     path: MagmaGolemPSB/BoneLeg4
     classID: 4
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -1489,7 +1580,9 @@ AnimationClip:
     path: MagmaGolemPSB/BoneBody/BoneNeck/BoneHead
     classID: 4
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -1526,7 +1619,9 @@ AnimationClip:
     path: MagmaGolemPSB/BoneBody/BoneNeck/BoneHead
     classID: 4
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -1563,7 +1658,9 @@ AnimationClip:
     path: MagmaGolemPSB/BoneBody/BoneNeck/BoneHead
     classID: 4
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -1600,7 +1697,9 @@ AnimationClip:
     path: MagmaGolemPSB/BoneBody/BoneNeck/BoneHead
     classID: 4
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -1637,7 +1736,9 @@ AnimationClip:
     path: MagmaGolemPSB/BoneBody/BoneNeck/BoneHead
     classID: 4
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -1674,7 +1775,9 @@ AnimationClip:
     path: MagmaGolemPSB/BoneBody/BoneNeck/BoneHead
     classID: 4
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -1711,7 +1814,9 @@ AnimationClip:
     path: MagmaGolemPSB/BoneBody/BoneNeck/BoneLeftHand
     classID: 4
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -1748,7 +1853,9 @@ AnimationClip:
     path: MagmaGolemPSB/BoneBody/BoneNeck/BoneLeftHand
     classID: 4
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -1785,7 +1892,9 @@ AnimationClip:
     path: MagmaGolemPSB/BoneBody/BoneNeck/BoneLeftHand
     classID: 4
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -1822,7 +1931,9 @@ AnimationClip:
     path: MagmaGolemPSB/BoneBody/BoneNeck/BoneLeftHand/BoneLeftWrist
     classID: 4
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -1859,7 +1970,9 @@ AnimationClip:
     path: MagmaGolemPSB/BoneBody/BoneNeck/BoneLeftHand/BoneLeftWrist
     classID: 4
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -1896,7 +2009,9 @@ AnimationClip:
     path: MagmaGolemPSB/BoneBody/BoneNeck/BoneLeftHand/BoneLeftWrist
     classID: 4
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -1933,7 +2048,9 @@ AnimationClip:
     path: MagmaGolemPSB/BoneBody/BoneNeck/BoneRightHand/BoneRightWrist
     classID: 4
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -1970,7 +2087,9 @@ AnimationClip:
     path: MagmaGolemPSB/BoneBody/BoneNeck/BoneRightHand/BoneRightWrist
     classID: 4
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -2007,7 +2126,9 @@ AnimationClip:
     path: MagmaGolemPSB/BoneBody/BoneNeck/BoneRightHand/BoneRightWrist
     classID: 4
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -2044,7 +2165,9 @@ AnimationClip:
     path: MagmaGolemPSB/Leg2
     classID: 212
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -2081,7 +2204,9 @@ AnimationClip:
     path: MagmaGolemPSB/Leg3
     classID: 212
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -2118,7 +2243,9 @@ AnimationClip:
     path: MagmaGolemPSB/Leg4
     classID: 212
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -2155,7 +2282,9 @@ AnimationClip:
     path: MagmaGolemPSB/Leg1
     classID: 212
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -2192,7 +2321,9 @@ AnimationClip:
     path: MagmaGolemPSB/Body
     classID: 212
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -2229,7 +2360,9 @@ AnimationClip:
     path: MagmaGolemPSB/HandRight
     classID: 212
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -2266,7 +2399,9 @@ AnimationClip:
     path: MagmaGolemPSB/WeaponRight
     classID: 212
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -2303,7 +2438,9 @@ AnimationClip:
     path: MagmaGolemPSB/Head
     classID: 212
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -2340,7 +2477,9 @@ AnimationClip:
     path: MagmaGolemPSB/HandLeft
     classID: 212
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -2377,8 +2516,10 @@ AnimationClip:
     path: MagmaGolemPSB/WeaponLeft
     classID: 212
     script: {fileID: 0}
+    flags: 16
   m_EulerEditorCurves:
-  - curve:
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve: []
       m_PreInfinity: 2
@@ -2388,7 +2529,9 @@ AnimationClip:
     path: MagmaGolemPSB/BoneBody/BoneNeck/BoneHead
     classID: 4
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve: []
       m_PreInfinity: 2
@@ -2398,7 +2541,9 @@ AnimationClip:
     path: MagmaGolemPSB/BoneBody/BoneNeck/BoneHead
     classID: 4
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve: []
       m_PreInfinity: 2
@@ -2408,7 +2553,9 @@ AnimationClip:
     path: MagmaGolemPSB/BoneBody/BoneNeck/BoneHead
     classID: 4
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve: []
       m_PreInfinity: 2
@@ -2418,7 +2565,9 @@ AnimationClip:
     path: MagmaGolemPSB/BoneBody/BoneNeck/BoneLeftHand/BoneLeftWrist
     classID: 4
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve: []
       m_PreInfinity: 2
@@ -2428,7 +2577,9 @@ AnimationClip:
     path: MagmaGolemPSB/BoneBody/BoneNeck/BoneLeftHand/BoneLeftWrist
     classID: 4
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve: []
       m_PreInfinity: 2
@@ -2438,7 +2589,9 @@ AnimationClip:
     path: MagmaGolemPSB/BoneBody/BoneNeck/BoneLeftHand/BoneLeftWrist
     classID: 4
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve: []
       m_PreInfinity: 2
@@ -2448,7 +2601,9 @@ AnimationClip:
     path: MagmaGolemPSB/BoneBody/BoneNeck/BoneRightHand/BoneRightWrist
     classID: 4
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve: []
       m_PreInfinity: 2
@@ -2458,7 +2613,9 @@ AnimationClip:
     path: MagmaGolemPSB/BoneBody/BoneNeck/BoneRightHand/BoneRightWrist
     classID: 4
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve: []
       m_PreInfinity: 2
@@ -2468,6 +2625,14 @@ AnimationClip:
     path: MagmaGolemPSB/BoneBody/BoneNeck/BoneRightHand/BoneRightWrist
     classID: 4
     script: {fileID: 0}
+    flags: 16
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 1.25
+    functionName: OnDied
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

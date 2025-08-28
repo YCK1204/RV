@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 0
   name: Bat
   health: 10
-  attack: 3
+  attack: 10
   defense: 4
   speed: 2
   attackRange: 2

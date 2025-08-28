@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class UIQuestManager : MonoBehaviour, IFooter
@@ -35,15 +36,24 @@ public class UIQuestManager : MonoBehaviour, IFooter
     {
         Manager.UI.Quest = this;
         Manager.Game.OnGoldChanged += OnGoldChanged;
+
+        var questList = Manager.Data.QuestData.Select(q => q.Value).ToList().OrderBy(q => q.Id);
+        foreach (var quest in questList)
+        {
+            var qe = Manager.Instantiate<UIQuest>(UIQuestPrefab, QuestContent);
+            qe.Init(quest);
+            Quests.Add(qe);
+        }
+
         var quests = Manager.Data.playerData.Quests.Quests;
         foreach (var quest in quests)
         {
-            var questUi = Manager.Resource.Instantiate<UIQuest>(UIQuestPrefab, QuestContent);
             var data = Manager.Data.QuestData[quest.Id];
-            questUi.Init(data);
-            questUi.Lv = quest.Level;
-            questUi.OnActivated(data.OpenCost, true);
-            Quests.Add(questUi);
+            UIQuest q = Quests.Find(q => q.Id == quest.Id);
+            if (q == null)
+                continue;
+            q.Lv = quest.Level;
+            q.OnActivated(data.OpenCost, true);
         }
     }
     void OnGoldChanged()

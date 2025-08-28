@@ -510,7 +510,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1336730673}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: ToSoldier
+        m_MethodName: ToAlly
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

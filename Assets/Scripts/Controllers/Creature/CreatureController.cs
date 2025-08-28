@@ -14,7 +14,7 @@ public abstract class CreatureController : MonoBehaviour
     Animator _animator;
     protected CircleCollider2D _circleCollider2d;
     protected BoxCollider2D _boxCollider2d;
-    protected GameObject _target;
+    protected CreatureController _target;
     protected SpriteRenderer[] _spriteRenderers;
     protected CreatureState State
     {
@@ -48,7 +48,7 @@ public abstract class CreatureController : MonoBehaviour
     protected Vector2 Dir { get; set; } = Vector2.zero;
     protected float Speed { get; set; } = 1f;
     long _hp;
-    protected long HP
+    public long HP
     {
         get { return _hp; }
         set
@@ -72,6 +72,13 @@ public abstract class CreatureController : MonoBehaviour
         _circleCollider2d.offset = _boxCollider2d.offset;
 
         _spriteRenderers = transform.FindChilds<SpriteRenderer>(true);
+    }
+    public void TakeDamage(long damage)
+    {
+        damage -= Defense;
+        if (damage < 0)
+            damage = 0;
+        HP -= damage;
     }
     void Update()
     {
@@ -106,7 +113,7 @@ public abstract class CreatureController : MonoBehaviour
         if (_target == null)
             State = CreatureState.Walk;
     }
-    float duration = .5f;
+    float duration = 10f;
     float timer = 0f;
     protected virtual void UpdateDie()
     {
@@ -140,7 +147,12 @@ public abstract class CreatureController : MonoBehaviour
         var distance = Vector2.Distance(collision.gameObject.transform.position, transform.position);
         if (distance > _circleCollider2d.radius)
             return;
-        _target = collision.gameObject;
+        var cc = collision.gameObject.GetComponent<CreatureController>();
+        if (cc == null)
+            return;
+        if (cc.HP <= 0)
+            return;
+        _target = cc;
         State = CreatureState.Attack;
     }
     public void OnDied()

@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7421e0e98d6956f418b4daf3c586c490, type: 3}
   m_Name: QuestData
   m_EditorClassIdentifier: 
+  _id: 0
   _icon: {fileID: 0}
-  _questName: Quest1
-  _baseGoldReward: 12
-  _baseCooldown: 12
-  _upgradeCost: 13
-  _extraGoldPerUpgrade: 14
+  _questName: Quest0
+  _baseGoldReward: 3
+  _baseCooldown: 1
+  _upgradeCost: 5
+  _extraGoldPerUpgrade: 3
   _openCost: 3

@@ -110,7 +110,13 @@ public class UIQuest : MonoBehaviour
     public void OnActivated(long openCost, bool loaded = false)
     {
         if (!loaded)
+        {
             Manager.Game.Gold -= openCost;
+            J_Quest quest = new J_Quest() { Id = Id, Level = Lv };
+            var quests = Manager.Data.playerData.Quests.Quests;
+            quests.Add(quest);
+            Manager.Data.Save();
+        }
         IsActive = true;
         OpenCostText.gameObject.SetActive(false);
         UpgradeCostText.gameObject.SetActive(true);
@@ -146,8 +152,7 @@ public class UIQuest : MonoBehaviour
     {
         var quest = Manager.Data.playerData.Quests.Quests.Where(q => q.Id == Id).FirstOrDefault();
 
-        if (quest == null)
-            return;
+        if (quest == null) return;
         quest.Level = Lv;
         Manager.Data.Save();
     }

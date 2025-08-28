@@ -112,7 +112,7 @@ public class UISoldier : MonoBehaviour
     public void Init(SoldierData data)
     {
         _data = data;
-        CharId = data.CharId;
+        CharId = data.Id;
         Lv = 1;
         SoldierName.text = _data.name;
         AttackPower = _data.Attack;

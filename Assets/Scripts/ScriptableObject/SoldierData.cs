@@ -4,9 +4,6 @@ using UnityEngine;
 public class SoldierData : CreatureData
 {
     [SerializeField]
-    int charId;
-    public int CharId { get { return charId; } }
-    [SerializeField]
     SoldierController prefab;
     public SoldierController Prefab { get { return prefab; } }
     [SerializeField]

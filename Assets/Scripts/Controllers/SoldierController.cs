@@ -11,6 +11,8 @@ public class SoldierController : CreatureController
         Attack = data.BaseUpgradeAttack + (level * data.LvUpAttack) + (upgrade * data.BaseUpgradeAttack);
         Defense = data.BaseUpgradeDefense + (level * data.LvUpDefense) + (upgrade * data.BaseUpgradeDefense);
         Speed = data.Speed;
+        if (_circleCollider2d == null)
+            _circleCollider2d = GetComponent<CircleCollider2D>();
         _circleCollider2d.radius = data.AttackRange;
         Dir = Vector2.right;
         var pos = transform.position;

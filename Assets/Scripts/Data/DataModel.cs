@@ -8,7 +8,7 @@ public class J_Soldier
     public long Upgrade { get; set; }
     public SoldierController Clone()
     {
-        Manager.Data.SoldierData.TryGetValue(Id, out SoldierData data);
+        Manager.Data.SoldierData.TryGetValue(CharId, out SoldierData data);
         if (data == null)
             return null;
         var sc = Manager.Resource.Instantiate<SoldierController>(data.Prefab);

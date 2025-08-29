@@ -11,8 +11,11 @@ public interface IFooter
     void Exit();
     void Init();
 }
-public class UIManager : MonoBehaviour
+public class UIManager : MonoBehaviour, IManager
 {
+    [SerializeField]
+    ScrollRect ScrollRect;
+
     [SerializeField]
     Canvas MainCanvas;
     [SerializeField]
@@ -48,20 +51,19 @@ public class UIManager : MonoBehaviour
             _state?.Enter();
         }
     }
-
-    private void Start()
-    {
-        Init();
-    }
-    void Init()
+    private void Awake()
     {
         Manager.UI = this;
+    }
+    public void Init()
+    {
         InitQuestManager();
         InitAllyManager();
         InitInventoryManager();
         InitShopManager();
 
         Manager.Game.OnGoldChanged += OnGoldChanged;
+        Manager.Game.OnStageLvChanged += OnStageLvChanged;
 
         Manager.Game.Gold = Manager.Data.playerData.Gold;
         Manager.Game.StageLevel = Manager.Data.playerData.Stage;
@@ -97,20 +99,28 @@ public class UIManager : MonoBehaviour
     {
         GoldText.text = "G" + Manager.Game.Gold.ToString();
     }
+    void OnStageLvChanged()
+    {
+        StageText.text = "STAGE " + Manager.Game.StageLevel.ToString();
+    }
     public void ToQuest()
     {
         State = Quest;
+        ScrollRect.content = QuestContent;
     }
     public void ToAlly()
     {
         State = Ally;
+        ScrollRect.content = AllyContent;
     }
     public void ToInventory()
     {
         State = Inventory;
+        ScrollRect.content = InventoryContent;
     }
     public void ToShop()
     {
         State = Shop;
+        ScrollRect.content = ShopContent;
     }
 }

@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 using UnityEngine;
 
-public class DataManager
+public class DataManager : IManager
 {
     string dataPath = Application.dataPath + "/Resources/Data";
     string questPath = "quest";

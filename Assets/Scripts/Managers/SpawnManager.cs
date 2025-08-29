@@ -1,8 +1,6 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -12,7 +10,7 @@ public class IgnoreCollision
     public LayerMask collider1;
     public LayerMask collider2;
 }
-public class SpawnManager : MonoBehaviour
+public class SpawnManager : MonoBehaviour, IManager
 {
     [SerializeField]
     GameObject AllySpawnPos;
@@ -23,13 +21,12 @@ public class SpawnManager : MonoBehaviour
 
     List<AllyController> Allys = new List<AllyController>();
     List<EnemyController> Enemies = new List<EnemyController>();
-    private void Start()
-    {
-        Init();
-    }
-    void Init()
+    private void Awake()
     {
         Manager.Spawn = this;
+    }
+    public void Init()
+    {
         foreach (var ic in IgnoreCollisions)
         {
             var layers1 = LayerMaskToLayers(ic.collider1);
@@ -40,6 +37,7 @@ public class SpawnManager : MonoBehaviour
                     Physics2D.IgnoreLayerCollision(l1, l2, true);
             }
         }
+        SpawnAll();
     }
     private static int[] LayerMaskToLayers(LayerMask mask)
     {
@@ -82,21 +80,26 @@ public class SpawnManager : MonoBehaviour
             Enemies.Add(ec);
         }
     }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            SpawnAllys();
-            SpawnEnemies();
-        }
-    }
     public void ClearAll()
     {
         foreach (var soldier in Allys)
+        {
+            if (soldier == null)
+                continue;
             Destroy(soldier.gameObject);
+        }
         Allys.Clear();
         foreach (var enemy in Enemies)
+        {
+            if (enemy == null)
+                continue;
             Destroy(enemy.gameObject);
+        }
         Enemies.Clear();
+    }
+    public void SpawnAll()
+    {
+        Invoke("SpawnAllys", .1f);
+        Invoke("SpawnEnemies", .1f);
     }
 }

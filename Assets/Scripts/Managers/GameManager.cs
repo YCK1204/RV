@@ -24,8 +24,24 @@ public class GameManager
         {
             if (_stageLevel == value)
                 return;
+            if (value < 1)
+                value = 1;
             _stageLevel = value;
             OnStageLvChanged?.Invoke();
+            ChangeStage();
         }
+    }
+    public void NextGame()
+    {
+        StageLevel++;
+    }
+    public void PrevGame()
+    {
+        StageLevel--;
+    }
+    void ChangeStage()
+    {
+        Manager.Spawn.ClearAll();
+        Manager.Spawn.SpawnAll();
     }
 }

@@ -12,11 +12,11 @@ TagManager:
   - 
   - Water
   - UI
-  - Soldier
+  - Ally
   - Enemy
-  - Aura
+  - NextAura
   - Border
-  - 
+  - PrevAura
   - 
   - 
   - 

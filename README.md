@@ -1,6 +1,6 @@
-# 🏰 RV - 3D 방치형 전략 게임
+# 🏰 RV - 2D 방치형 전략 게임
 
-Unity로 제작한 3D 방치형 전략 게임입니다. 다양한 병사들을 조합하여 적과 전투하며 스테이지를 클리어해 나가는 게임입니다.
+Unity로 제작한 2D 방치형 전략 게임입니다. 다양한 병사들을 조합하여 적과 전투하며 스테이지를 클리어해 나가는 게임입니다.
 
 <div align="center">
   <img src="https://img.shields.io/badge/Unity-2022.3.17f1-000000?style=for-the-badge&logo=unity&logoColor=white" />

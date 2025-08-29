@@ -53,7 +53,6 @@ public class UIAlly : MonoBehaviour
             AttackPower = _data.Attack + (_lv * _data.LvUpAttack) + (Upgrade * _data.BaseUpgradeAttack);
             Health = _data.Health + (_lv * _data.LvUpHealth) + (Upgrade * _data.BaseUpgradeHealth);
             DefensePower = _data.Defense + (_lv * _data.LvUpDefense) + (Upgrade * _data.BaseUpgradeDefense);
-            OnLvOrUpgradeChanged();
         }
     }
     long _upgrade = 0;
@@ -69,7 +68,7 @@ public class UIAlly : MonoBehaviour
             AttackPower = _data.Attack + (_lv * _data.LvUpAttack) + (Upgrade * _data.BaseUpgradeAttack);
             Health = _data.Health + (_lv * _data.LvUpHealth) + (Upgrade * _data.BaseUpgradeHealth);
             DefensePower = _data.Defense + (_lv * _data.LvUpDefense) + (Upgrade * _data.BaseUpgradeDefense);
-            OnLvOrUpgradeChanged();
+            OnUpgradeChanged();
         }
     }
     long _attackPower = 0;
@@ -135,12 +134,11 @@ public class UIAlly : MonoBehaviour
         Manager.Game.Gold -= _data.LvUpCost;
         Lv++;
     }
-    void OnLvOrUpgradeChanged()
+    void OnUpgradeChanged()
     {
         var soldier = Manager.Data.playerData.Allys.Allys.Where(s => s.Id == Id).FirstOrDefault();
 
         if (soldier == null) return;
-        soldier.Level = Lv;
         soldier.Upgrade = Upgrade;
         Manager.Data.Save();
     }

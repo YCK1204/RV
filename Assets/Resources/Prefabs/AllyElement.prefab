@@ -487,8 +487,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7275030831047567252}
-        m_TargetAssemblyTypeName: UISoldier, Assembly-CSharp
-        m_MethodName: OnClickOpenOrLvUp
+        m_TargetAssemblyTypeName: UIAlly, Assembly-CSharp
+        m_MethodName: OnClickLvUp
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

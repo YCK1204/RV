@@ -22,16 +22,18 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI StageText;
 
-    [SerializeField]
-    UIQuest QuestPrefab;
-    [SerializeField]
-    UIAlly AllyPrefab;
-    [SerializeField]
+    public UIQuest QuestPrefab;
+    public UIAlly AllyPrefab;
+    public UIInventoryItem UIInventoryItemPrefab;
+    public UIShopItem UIShopItemPrefab;
     public RectTransform QuestContent;
-    [SerializeField]
     public RectTransform AllyContent;
+    public RectTransform InventoryContent;
+    public RectTransform ShopContent;
     public UIQuestManager Quest { get; set; }
     public UIAllyManager Ally { get; set; }
+    public UIInventoryManager Inventory { get; set; }
+    public UIShopManager Shop { get; set; }
 
     IFooter _state;
     public IFooter State
@@ -49,18 +51,16 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        Init();
+    }
+    void Init()
+    {
         Manager.UI = this;
-        var q = new GameObject("QuestManager").AddComponent<UIQuestManager>();
-        q.transform.SetParent(gameObject.transform);
-        Quest = q;
-        q.QuestContent = QuestContent;
-        q.UIQuestPrefab = QuestPrefab;
+        InitQuestManager();
+        InitAllyManager();
+        InitInventoryManager();
+        InitShopManager();
 
-        var s = new GameObject("AllyManager").AddComponent<UIAllyManager>();
-        s.transform.SetParent(gameObject.transform);
-        Ally = s;
-        s.AllyContent = AllyContent;
-        s.AllyUI = AllyPrefab;
         Manager.Game.OnGoldChanged += OnGoldChanged;
 
         Manager.Game.Gold = Manager.Data.playerData.Gold;
@@ -68,6 +68,30 @@ public class UIManager : MonoBehaviour
         GoldText.text = "G" + Manager.Game.Gold.ToString();
         StageText.text = "STAGE " + Manager.Game.StageLevel.ToString();
         ToQuest();
+    }
+    void InitQuestManager()
+    {
+        var q = new GameObject("QuestManager").AddComponent<UIQuestManager>();
+        q.transform.SetParent(gameObject.transform);
+        Quest = q;
+    }
+    void InitAllyManager()
+    {
+        var s = new GameObject("AllyManager").AddComponent<UIAllyManager>();
+        s.transform.SetParent(gameObject.transform);
+        Ally = s;
+    }
+    void InitInventoryManager()
+    {
+        var i = new GameObject("InventoryManager").AddComponent<UIInventoryManager>();
+        i.transform.SetParent(gameObject.transform);
+        Inventory = i;
+    }
+    void InitShopManager()
+    {
+        var s = new GameObject("ShopManager").AddComponent<UIShopManager>();
+        s.transform.SetParent(gameObject.transform);
+        Shop = s;
     }
     void OnGoldChanged()
     {
@@ -80,5 +104,13 @@ public class UIManager : MonoBehaviour
     public void ToAlly()
     {
         State = Ally;
+    }
+    public void ToInventory()
+    {
+        State = Inventory;
+    }
+    public void ToShop()
+    {
+        State = Shop;
     }
 }

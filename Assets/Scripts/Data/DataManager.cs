@@ -13,10 +13,21 @@ public class DataManager
     string allyPath = "ally";
     string enemyPath = "enemy";
     string playerPath = "player.json";
+    string itemPath = "item";
+    string relicItemPath = "relicItem";
+    string doubleSpeedItemPath = "doubleSpeedItem";
+    string abilityItemPath = "abilityItem";
+    string allyItemPath = "allyItem";
 
     public Dictionary<int, QuestData> QuestData = new Dictionary<int, QuestData>();
     public Dictionary<int, AllyData> AllyData = new Dictionary<int, AllyData>();
     public Dictionary<int, EnemyData> EnemyData = new Dictionary<int, EnemyData>();
+
+    Dictionary<int, RelicItemData> _relicItemData = new Dictionary<int, RelicItemData>();
+    Dictionary<int, DoubleSpeedItemData> _doubleSpeedItemData = new Dictionary<int, DoubleSpeedItemData>();
+    Dictionary<int, AbilityItemData> _abilityItemData = new Dictionary<int, AbilityItemData>();
+    Dictionary<int, AllyItemData> _allyItemData = new Dictionary<int, AllyItemData>();
+    public List<ItemData> ItemData = new List<ItemData>();
     public J_PlayerData playerData;
 
     // 절대 경로의 json파일을 T1 Wrapper로 데이터화 후 T1 Dictionary 변환
@@ -69,8 +80,26 @@ public class DataManager
     public void Init()
     {
         Load();
+        InitItemData();
         Manager.Game.OnGoldChanged += OnGoldChanged;
         Manager.Game.OnStageLvChanged += OnStageLvChanged;
+    }
+    void InitItemData()
+    {
+        foreach (var item in _relicItemData)
+            ItemData.Add(item.Value);
+        foreach (var item in _doubleSpeedItemData)
+            ItemData.Add(item.Value);
+        foreach (var item in _abilityItemData)
+            ItemData.Add(item.Value);
+        foreach (var item in _allyItemData)
+            ItemData.Add(item.Value);
+        ItemData.Sort((a, b) =>
+        {
+            if (a.ItemType != b.ItemType)
+                return a.ItemType.CompareTo(b.ItemType);
+            return a.Id.CompareTo(b.Id);
+        });
     }
     public void Load()
     {
@@ -78,6 +107,10 @@ public class DataManager
         AllyData = MakeScriptableObjectDict<AllyData>($"Data/{allyPath}", (data) => { return data.Id; });
         EnemyData = MakeScriptableObjectDict<EnemyData>($"Data/{enemyPath}", (data) => { return data.Id; });
         playerData = MakeData<J_PlayerData>($"{dataPath}/{playerPath}");
+        _relicItemData = MakeScriptableObjectDict<RelicItemData>($"Data/{itemPath}/{relicItemPath}", (data) => { return data.Id; });
+        _doubleSpeedItemData = MakeScriptableObjectDict<DoubleSpeedItemData>($"Data/{itemPath}/{doubleSpeedItemPath}", (data) => { return data.Id; });
+        _abilityItemData = MakeScriptableObjectDict<AbilityItemData>($"Data/{itemPath}/{abilityItemPath}", (data) => { return data.Id; });
+        _allyItemData = MakeScriptableObjectDict<AllyItemData>($"Data/{itemPath}/{allyItemPath}", (data) => { return data.Id; });
     }
     public void Save()
     {

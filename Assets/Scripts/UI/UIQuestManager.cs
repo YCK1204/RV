@@ -6,10 +6,9 @@ using UnityEngine;
 
 public class UIQuestManager : MonoBehaviour, IFooter
 {
-    [HideInInspector]
-    public UIQuest UIQuestPrefab;
+    public UIQuest UIQuestPrefab { get { return Manager.UI.QuestPrefab; } }
     public List<UIQuest> Quests = new List<UIQuest>();
-    public RectTransform QuestContent;
+    public RectTransform QuestContent { get { return Manager.UI.QuestContent; } }
     private void Start()
     {
         Init();
@@ -34,7 +33,6 @@ public class UIQuestManager : MonoBehaviour, IFooter
     }
     public void Init()
     {
-        Manager.UI.Quest = this;
         Manager.Game.OnGoldChanged += OnGoldChanged;
 
         var questList = Manager.Data.QuestData.Select(q => q.Value).ToList().OrderBy(q => q.Id);

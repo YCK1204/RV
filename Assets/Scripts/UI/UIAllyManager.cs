@@ -5,11 +5,10 @@ using UnityEngine;
 
 public class UIAllyManager : MonoBehaviour, IFooter
 {
-    [HideInInspector]
-    public UIAlly AllyUI;
+    public UIAlly AllyUI { get { return Manager.UI.AllyPrefab; } }
 
     List<UIAlly> _soldiers = new List<UIAlly>();
-    public RectTransform AllyContent;
+    public RectTransform AllyContent { get { return Manager.UI.AllyContent; } }
     int _maxId = 0;
     private void Start()
     {
@@ -25,7 +24,6 @@ public class UIAllyManager : MonoBehaviour, IFooter
     }
     public void Init()
     {
-        Manager.UI.Ally = this;
         Manager.Game.OnGoldChanged += OnGoldChanged;
         var soldiers = Manager.Data.playerData.Allys.Allys;
         foreach (var soldier in soldiers)
